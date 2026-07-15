@@ -22,7 +22,7 @@ jobs:
 
       - name: Read upstream scanservjs version
         id: version
-        run: echo "scanservjs=$(cat VERSION)" >> "$GITHUB_OUTPUT"
+        run: echo "scanservjs=$(grep -oP '^ARG SCANSERVJS_VERSION=\K.+' Dockerfile)" >> "$GITHUB_OUTPUT"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
