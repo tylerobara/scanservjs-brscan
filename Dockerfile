@@ -9,6 +9,7 @@ ARG BRSCAN4_VERSION=0.4.11-1
 ARG BRSCAN4_URL=https://download.brother.com/welcome/dlf105200/brscan4-${BRSCAN4_VERSION}.amd64.deb
 
 RUN apt-get update \
+    && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends curl ca-certificates \
     && curl -fsSL -o /tmp/brscan4.deb "${BRSCAN4_URL}" \
     && dpkg -i --force-all /tmp/brscan4.deb \
